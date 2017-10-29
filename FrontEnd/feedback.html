@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Customer feedback</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="js/bootstrap.css"></link>
+    <link rel="stylesheet" href="js/bootstrap.min.css"></link>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    #feedbackForm{
+        border: 3px solid #f1f1f1;
+        width: 70%;
+        height: auto;
+    }
+    header{
+        background-color: #292b2c;
+    }
+    footer{
+        background-color: #a6d5ec;
+    }
+    .parallax{
+        background-image: url("img/feedbackParallax.jpg");
+        min-height: 400px;
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    form{
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+    }
+</style>
+
+
+<body>
+
+<!--**** USing Parallax *****-->
+<div class="parallax"></div>
+
+<!--Header Part-->
+<header class="fixed-top">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10">
+                <a class="navbar-brand" href="https://www.instamojo.com/"><img src="img/instamojo-logo.png" alt="logo"/> </a>
+            </div>
+
+        </div>
+    </div>
+</header>
+<br/> <br/> <br/>
+
+<div ng-app="myApp" ng-controller="formCtrl">
+    <div class="container">
+        <strong><h4>PAN verification application</h4></strong> <br />
+
+    <form name="myForm" id="feedbackForm" method="post" action="#" novalidate>
+        <div class="row">
+            <div class="col-md-6">
+                <figure>
+                    <img src="http://pancardoffice.com/wp-content/uploads/2014/11/pan-card-big-size-300x190.jpg" alt="PAN image" width="304" height="228">
+                </figure>
+            </div>
+            <div class="col-md-6">
+                <div>PAN: ZZARA7941X</div>
+                <div>Name: John Doe</div>
+                <div>DOB: 1/1/1990</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 radio">
+                <label><input type="radio" name="optradio">Do nothing</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 radio">
+                <label><input type="radio" name="optradio">Mark as correct</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 radio">
+                <label><input type="radio" name="optradio">Mark as incorrect</label>
+            </div>
+        </div>
+
+        <div class="row">
+                <div class="col-md-12 radio">
+                    <label><input type="radio" name="optradio">Mark as incorrect and provide correct value</label>
+                </div>
+        </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>PAN: </label> <br/>
+                        <input type="text"  value="" />
+                    </div>
+                </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                             <label>Name:</label> <br/>
+                            <input type="text" value="" />
+                        </div>
+                    </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>DOB:</label> <br/>
+                        <input type="date"  />
+                    </div>
+                </div>
+        <br/> <br/>
+
+        <button type="submit" class="btn btn-success">Submit</button>
+        <br/><br/>
+    </form>
+</div>
+</div>
+
+<br/><br/>
+<footer>
+    <div class="container-fluid">
+        <strong>Follow US @</strong> <br/>
+        <div class="row">
+            <div class="col-md-1">
+                <img src="img/facebook.gif" width="50px" height="50px">
+            </div>
+            <div class="col-md-1">
+                <img src="img/linkedin.gif" width="50px" height="50px">
+            </div>
+            <div class="col-md-1">
+                <img src="img/twitter.gif" width="50px" height="50px">
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
