@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User login page</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="js/bootstrap.css"></link>
+    <link rel="stylesheet" href="js/bootstrap.min.css"></link>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        #userForm{
+            border: 3px solid #f1f1f1;
+            width: 50%;
+            height: auto;
+        }
+        header{
+            background-color: #292b2c;
+        }
+        footer{
+            background-color: #a6d5ec;
+        }
+        input{
+            background-color: #a6d5ec;
+        }
+        label{
+            font-family: "Lucida Sans Typewriter";
+            font-weight: 500;
+        }
+        form{
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+        h4{
+            font-family: "Monotype Corsiva";
+            font-weight: 600;
+            text-decoration: #6741ff;
+        }
+        .parallax{
+            background-image: url("img/paymentGateway.jpg");
+            min-height: 500px;
+            /* Create the parallax scrolling effect */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+
+    </style>
+
+
+
+</head>
+<body ng-app="myApp">
+
+<!--**** USing Parallax *****-->
+<div class="parallax"></div>
+
+<header class="fixed-top">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-10">
+            <a class="navbar-brand" href="https://www.instamojo.com/"><img src="img/instamojo-logo.png" alt="logo"/> </a>
+        </div>
+        <div class="col-md-2">
+
+            <button class="btn btn-outline-info" data-toggle="modal" data-target="#signUpModal"> Sign Up </button> &nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-outline-success" data-toggle="modal" data-target="#signInModal"> Login </button>
+
+        </div>
+    </div>
+</div>
+</header>
+<br /> <br /> <br /> <br />
+
+<div ng-app="myApp" ng-controller="formCtrl">
+    <div align="center">
+        <strong><h4>PAN verification application</h4></strong> <br />
+
+
+<form id="userForm" method="post"  action="index.html" novalidate>
+    <div class="container">
+    <img src="img/BornToHack.gif" class="img-thumbnail" /> <br /> <br />
+
+        <div class="row">
+        <div class="col-md-6">
+    <label>Name (as mentioned on your PAN):</label>
+    <input type="text" ng-model="userName" id="nameField" placeholder="Name as per your PAN" />
+        </div>
+        <div class="col-md-3">
+    <label>PAN number:</label> <br/>
+    <input type="text" ng-model="PANdetail" id="PANfield" placeholder="Enter your PAN no" />
+        </div>
+        </div>
+
+        <div class="row">
+        <div class="col-md-6" >
+    <label>Email:</label> <br />
+    <input type="email" ng-model="emailDetail" id="Emailfield" placeholder="Enter your Email ID" />
+       </div>
+       <div class="col-md-3">
+    <label>DOB (mm/dd/yyyy)</label> <br />
+    <input type="date" ng-model="userDOB" id="DOBfield" placeholder="Enter your DOB mm/dd/yyyy" style="width:200px" />
+       </div>
+       </div>
+
+            <br />
+
+       <div class="row">
+       <div class="col-md-6">
+       <label>Upload your PAN:</label>
+       </div>
+       <div class="col-md-2">
+    <input type="file" ng-model="PANfile" onChange="readURL(this);" id="UploadField" placeholder="Upload your PAN here"  />
+       </div>
+       </div>
+            <br />
+        <div class="row">
+            <div class="col-md-10">
+                <img src="#" id="PANimage" alt="Your PAN will appear here !">
+            </div>
+        </div>
+
+        <br />
+        <br />
+        <br/>
+
+    <input type="submit" class="btn btn-success" />
+    <input type="reset" class="btn btn-warning" />
+    </div>
+</form>
+    </div>
+</div>
+
+<!--Using MODAL Window-->
+
+<!--MODAL Window for user Sign In-->
+<div id="signInModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #5cb85c">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Sign In Form</h4>
+            </div>
+            <div class="modal-body">
+
+                <form class="modal-content animate" action="">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label><b>Enter your PAN number</b></label>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" placeholder="Enter PAN no." name="PAN" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label><b>Password</b></label>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="password" placeholder="Enter Password" id="pwd" required>
+                            </div>
+                        </div>
+
+                        <input type="checkbox" checked="checked"> Remember me
+                            <br /> <br/>
+                        <div class="clearfix">
+                            <button type="reset" class="cancelbtn">Cancel</button>
+                            <button type="submit" class="signupbtn">Sign In</button>
+                        </div>
+                        <br /> <br/>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<br/><br/><br/>
+
+    <!--***** MODAL Window for user Sign Up *****-->
+
+<div id="signUpModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #5cb85c">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Sign UP Form</h4>
+            </div>
+            <div class="modal-body">
+
+                <form class="modal-content animate" action="">
+                    <div class="container">
+                        <div class="row">
+                        <div class="col-md-6">
+                        <label><b>Enter your PAN number</b></label>
+                        </div>
+                        <div class="col-md-3">
+                        <input type="text" placeholder="Enter PAN no." name="PAN" required>
+                        </div>
+                        </div>
+
+                        <div class="row">
+                        <div class="col-md-6">
+                        <label><b>Password</b></label>
+                        </div>
+                        <div class="col-md-3">
+                        <input type="password" placeholder="Enter Password" id="pwd" required>
+                        </div>
+                        </div>
+
+                        <div class="row">
+                        <div class="col-md-6">
+                        <label><b>Repeat Password</b></label>
+                        </div>
+                        <div class="col-md-3">
+                        <input type="password" placeholder="Repeat Password" id="pwd-repeat" required>
+                        </div>
+                        </div>
+
+                        <input type="checkbox" checked="checked"> Remember me
+                        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+                        <div class="clearfix">
+                            <button type="reset" class="cancelbtn">Cancel</button>
+                            <button type="submit" class="signupbtn">Sign Up</button>
+                        </div>
+                        <br/>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    /*Adding Angular JS code for initial Angular JS application*/
+    var details = angular.module("myApp", []);
+    details.controller("formCtrl", function($scope){
+        $scope.userName="";
+        $scope.PANdetail="";
+        $scope.emailDetail="";
+        $scope.userDOB="";
+        $scope.PANfile="";
+
+    });
+
+/* Adding JS code to preview the uploaded image*/
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#PANimage')
+                    .attr('src', e.target.result)
+                    .width(300)
+                    .height(200);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+</script>
+
+
+<footer>
+    <div class="container-fluid">
+        <strong>Follow US @</strong> <br/>
+        <div class="row">
+            <div class="col-md-1">
+              <img src="img/facebook.gif" width="50px" height="50px">
+            </div>
+            <div class="col-md-1">
+              <img src="img/linkedin.gif" width="50px" height="50px">
+            </div>
+            <div class="col-md-1">
+              <img src="img/twitter.gif" width="50px" height="50px">
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
